@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automate X — Scherer Pilot Console</title>
+    <meta
+      name="description"
+      content="Prototype command console for browser-driven process automation, prepared as a pilot concept for Scherer Holding."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient--left"></div>
+    <div class="ambient ambient--right"></div>
+    <div class="noise"></div>
+
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="eyebrow">Automate X / pilot concept</p>
+          <h1>Scherer Pilot Console</h1>
+          <p class="topbar__summary">
+            White-label Prototyp für browsergestützte Prozessautomatisierung,
+            Freigaben und operative Nachvollziehbarkeit.
+          </p>
+        </div>
+
+        <div class="topbar__meta">
+          <span class="pill pill--live">Live concept</span>
+          <span class="pill">Operator-first UI</span>
+          <span class="pill">Local infrastructure ready</span>
+        </div>
+      </header>
+
+      <section class="overview-ribbon panel">
+        <article>
+          <span>Prepared for</span>
+          <strong>Marco Bender / Scherer Holding</strong>
+        </article>
+        <article>
+          <span>Primary fit</span>
+          <strong>Click-heavy workflows without APIs</strong>
+        </article>
+        <article>
+          <span>Delivery model</span>
+          <strong>On-site or private execution layer</strong>
+        </article>
+        <article>
+          <span>Pilot promise</span>
+          <strong>Logbook · approval · PDF intake · retry</strong>
+        </article>
+      </section>
+
+      <main class="grid">
+        <section class="panel panel--hero span-2 hero">
+          <div class="hero__copy">
+            <p class="eyebrow">Prepared for Scherer Group operations</p>
+            <h2>Ein operatives Steuerpult für Prozesse, die heute noch per Klick-Handarbeit laufen.</h2>
+            <p class="hero__lede">
+              Der Prototyp ist bewusst nicht wie ein generisches KI-Dashboard gebaut,
+              sondern wie ein echtes internes Arbeitswerkzeug: natürlichsprachige
+              Operator-Eingabe, deterministische Browser-Runs, PDF-Rechnungswege,
+              Freigabeschritte und ein lesbares Laufprotokoll für reale Teams.
+            </p>
+
+            <div class="hero__actions">
+              <span class="hero-chip">Browser runner</span>
+              <span class="hero-chip">Approval checkpoint</span>
+              <span class="hero-chip">Invoice intake</span>
+              <span class="hero-chip">Operational logbook</span>
+            </div>
+
+            <div class="hero__foot">
+              <div>
+                <span class="hero__label">Positionierung</span>
+                <strong>Nicht „KI-Spielerei“, sondern ein sauberer Pilot für einen messbaren Prozess.</strong>
+              </div>
+              <div>
+                <span class="hero__label">Ideal für den Pitch</span>
+                <strong>Amazon-/Portal-Demos, Freigabe vor finalem Schritt, klare Nachvollziehbarkeit.</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__display">
+            <div class="display-card display-card--primary">
+              <span class="display-card__tag">Process flow</span>
+              <strong>Input → Router → Browser runner → Approval → Logbook</strong>
+              <p>Optimiert für Prozesse, bei denen ein Mensch Eingaben macht und das System präzise Browser-Schritte abarbeitet.</p>
+            </div>
+
+            <div class="display-grid">
+              <article class="display-card">
+                <span class="display-card__tag">Use case 01</span>
+                <strong>Beschaffung über Web-Frontends</strong>
+                <p>Produkte suchen, prüfen, in den Warenkorb legen, vor Checkout stoppen.</p>
+              </article>
+              <article class="display-card">
+                <span class="display-card__tag">Use case 02</span>
+                <strong>PDF-Rechnungen & Zuordnung</strong>
+                <p>Dokumente aufnehmen, Basisdaten extrahieren und sauber protokollieren.</p>
+              </article>
+              <article class="display-card display-card--tall">
+                <span class="display-card__tag">Pilot fit</span>
+                <strong>Vor-Ort-fähig, nachvollziehbar, kontrollierbar.</strong>
+                <ul class="display-list">
+                  <li>Retry statt stillem Scheitern</li>
+                  <li>Screenshot-/Schrittprotokoll</li>
+                  <li>Freigabepunkt vor kritischen Aktionen</li>
+                  <li>White-label-kompatible Oberfläche</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel command-center">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Command center</p>
+              <h3>Natürlichsprachige Eingabe</h3>
+            </div>
+            <div class="status-stack">
+              <span class="status" id="modeBadge">Demo mode</span>
+              <span class="status status--muted" id="connectionBadge">Kein Endpoint verbunden</span>
+            </div>
+          </div>
+
+          <div class="command-layout">
+            <div>
+              <div class="chips">
+                <button class="chip" data-prompt="Suche bei Amazon nach Winterreifen und lege den günstigsten passenden Satz in den Warenkorb, aber stoppe vor dem Checkout.">Amazon / Warenkorb</button>
+                <button class="chip" data-prompt="Prüfe die neuesten PDF-Rechnungen, extrahiere Betrag und Datum und lege sie im Logbuch ab.">PDF-Rechnung</button>
+                <button class="chip" data-prompt="Suche nach einem wiederkehrenden manuellen Prozess im Einkauf und schlage eine Automatisierung mit Freigabe vor.">Prozessanalyse</button>
+                <button class="chip" data-prompt="Öffne das Autohaus-Portal, prüfe offene Aufgaben und dokumentiere alle Fehler im Dashboard.">Portal / Monitoring</button>
+              </div>
+
+              <div class="composer">
+                <textarea id="promptInput" rows="5" placeholder="Beispiel: Suche bei Amazon nach einem günstigen Mehrfachstecker, lege ihn in den Warenkorb und halte vor dem finalen Bestellklick an."></textarea>
+                <div class="composer__actions">
+                  <button class="button button--ghost" id="fillDemo">Demo prompt</button>
+                  <button class="button button--primary" id="runPrompt">Ausführen</button>
+                </div>
+              </div>
+
+              <div class="assistant-window" id="chatWindow"></div>
+            </div>
+
+            <aside class="prompt-rail">
+              <article>
+                <span class="kicker">A</span>
+                <h4>Operator prompts</h4>
+                <p>Ein Mensch beschreibt den Zielprozess in normaler Sprache statt über starre Menüs oder Trigger-Ketten.</p>
+              </article>
+              <article>
+                <span class="kicker">B</span>
+                <h4>Routing intelligence</h4>
+                <p>Der Prompt wird in Flow-Typen übersetzt: Amazon-Run, PDF-Intake, Portal-Aktion oder Rechercheauftrag.</p>
+              </article>
+              <article>
+                <span class="kicker">C</span>
+                <h4>Safe execution</h4>
+                <p>Kritische Schritte bleiben stoppbar. Genau das macht den Prototypen präsentierbar und glaubwürdig.</p>
+              </article>
+            </aside>
+          </div>
+        </section>
+
+        <section class="panel cockpit">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Execution telemetry</p>
+              <h3>Run-Log & Systemsignale</h3>
+            </div>
+          </div>
+
+          <div class="cockpit__stats">
+            <article>
+              <span>Routing</span>
+              <strong id="intentLabel">Noch kein Befehl</strong>
+            </article>
+            <article>
+              <span>Sicherheitsmodus</span>
+              <strong id="riskLabel">Freigabe vor kritischen Schritten</strong>
+            </article>
+            <article>
+              <span>Output</span>
+              <strong id="outputLabel">Noch keine Aktion</strong>
+            </article>
+          </div>
+
+          <div class="logbook" id="logbook"></div>
+        </section>
+
+        <section class="panel blueprint span-2">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Pilot blueprint</p>
+              <h3>Was Marco konkret sehen soll</h3>
+            </div>
+          </div>
+
+          <div class="blueprint__grid">
+            <article>
+              <span class="kicker">01</span>
+              <h4>Command cockpit</h4>
+              <p>Eine Oberfläche, die intern wirkt wie ein echtes Arbeitswerkzeug — nicht wie ein öffentliches AI-Gimmick.</p>
+            </article>
+            <article>
+              <span class="kicker">02</span>
+              <h4>Deterministischer Browser-Runner</h4>
+              <p>Klickpfade für Systeme ohne API, inklusive Retry, Zustandsprüfung, Logging und manueller Freigabe.</p>
+            </article>
+            <article>
+              <span class="kicker">03</span>
+              <h4>Invoice intake</h4>
+              <p>PDF-Rechnungen aufnehmen, strukturelle Basisdaten extrahieren und einem Vorgang oder Lauf zuordnen.</p>
+            </article>
+            <article>
+              <span class="kicker">04</span>
+              <h4>Operational logbook</h4>
+              <p>Start, Schritte, Fehler, Ergebnis und Ausnahmen landen lesbar im Protokoll statt unsichtbar im Hintergrund.</p>
+            </article>
+            <article>
+              <span class="kicker">05</span>
+              <h4>Approval layer</h4>
+              <p>Vor finalen Käufen oder kritischen Portal-Aktionen bleibt der Mensch die letzte Instanz.</p>
+            </article>
+            <article>
+              <span class="kicker">06</span>
+              <h4>Deployment path</h4>
+              <p>Frontend öffentlich pitchen, Execution privat betreiben — ideal für Demo, Pilot und spätere Härtung.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel principles">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Pitch framing</p>
+              <h3>Die Story für Scherer</h3>
+            </div>
+          </div>
+
+          <div class="principles__stack">
+            <article>
+              <span>Messbarer Nutzen</span>
+              <strong>Erst ein klarer Prozess, dann Skalierung.</strong>
+            </article>
+            <article>
+              <span>Vertrauen</span>
+              <strong>Transparente Schritte statt Blackbox-Automation.</strong>
+            </article>
+            <article>
+              <span>Operative Realität</span>
+              <strong>Funktioniert auch dort, wo es keine saubere API-Landschaft gibt.</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel config-panel">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Bridge setup</p>
+              <h3>Execution endpoint</h3>
+            </div>
+          </div>
+
+          <p class="config-copy">
+            GitHub Pages hostet nur das Frontend. Für echte Browser-Aktionen braucht
+            der Prototyp später eine private Execution-Bridge oder ein internes API.
+            Hier kann bereits ein Endpoint hinterlegt werden.
+          </p>
+
+          <div class="config-form">
+            <label>
+              <span>API / Webhook URL</span>
+              <input id="endpointInput" type="url" placeholder="https://your-domain.tld/api/execute" />
+            </label>
+            <label>
+              <span>Projektname</span>
+              <input id="projectNameInput" type="text" placeholder="Scherer Pilot Console" />
+            </label>
+            <label>
+              <span>Approvals</span>
+              <select id="approvalMode">
+                <option value="approve-before-buy">Vor Kauf bestätigen</option>
+                <option value="manual-only">Nur Vorschläge / keine Ausführung</option>
+                <option value="full-run">Vollausführung möglich</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="composer__actions">
+            <button class="button button--ghost" id="saveConfig">Konfiguration speichern</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <span class="message__role"></span>
+        <div class="message__body"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
